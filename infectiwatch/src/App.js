@@ -1,13 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-// import NavBar from './components/NavBar';
+import NavBar from './components/NavBar';
 import Diseases from './components/Diseases';
+import Donations from './components/Donations';
+// import Review from './components/Reviews';
 
 function App() {
   return (
     <div className="App">
-      {/* <NavBar/> */}
-      <Diseases/>
+      <NavBar/>
+      {/* <Diseases/> */}
+      {/* <Review/> */}
+      {/* <Donations/> */}
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

@@ -1,0 +1,56 @@
+.review-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .review-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .review-instructions {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .review-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+  }
+  
+  .review-submit {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .review-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  .review-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .review-table th,
+  .review-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .review-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .review-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  

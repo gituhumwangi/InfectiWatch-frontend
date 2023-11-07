@@ -6,25 +6,15 @@ function Diseases() {
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
+    // Fetch data when the component mounts (initially)
     fetchData();
-    // console.log(fetchData())
-  }, []);
+    console.log(fetchData())
+  }, []); // The dependency array should be empty to run the effect once.
 
-  // console.log("=====data", data)
   const fetchData = () => {
-    console.log("Clicked")
-    console.log("input", searchInput)
-    // fetch(`http://127.0.0.1:5555/diseases?search=${searchInput}`)
-      // .then(res => {
-      //   if (!res.ok) {
-      //     throw new Error("Disease not found")
-      //   }
-      //    return res.json() 
-      //   })
-      // .then(data => setData(data))
-      // .catch(erro => console.log(erro))
-
-    fetch(`http://127.0.0.1:5555/diseases?search=${searchInput}`)
+    
+    
+    fetch(`http://127.0.0.1:5000/diseases?search=${searchInput}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Disease not found");
@@ -35,10 +25,10 @@ function Diseases() {
       .catch((error) => console.error("Error fetching data:", error));
   };
 
-  const handleClick = () => {
-    // e.preventDefault()
+  const handleClick = (e) => {
+    e.preventDefault(); // Prevent the form from submitting and page reloading
     fetchData();
-
+    console.log(data)
   };
 
   return (
