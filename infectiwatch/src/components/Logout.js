@@ -1,6 +1,6 @@
 import React from "react";
 
-function Emergencies () {
+function Logout () {
     return (
         <div>
 
@@ -8,4 +8,4 @@ function Emergencies () {
     )
 }
 
-export default Emergencies
+export default Logout
