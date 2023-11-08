@@ -1,32 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'; // Import BrowserRouter once
 import NavBar from './components/NavBar';
 import Diseases from './components/Diseases';
 import Donations from './components/Donations';
-// import Review from './components/Reviews';
+import Reviews from './components/Reviews';
+import Location from './components/Location';
+import Emergencies from './components/Emergencies';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Homepage from './components/Homepage';
 
 function App() {
   return (
-    <div className="App">
-      <NavBar/>
-      {/* <Diseases/> */}
-      {/* <Review/> */}
-      {/* <Donations/> */}
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p> */}
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-      {/* </header> */}
-    </div>
+    // <BrowserRouter> 
+      // <NavBar />
+      <Diseases />
+      // <Routes>
+      //   <Route path="/diseases" element={<Diseases />} />
+      //   <Route path="/donations" element={<Donations />} />
+      //   <Route path="/reviews" element={<Reviews />} />
+      //   <Route path="/location" element={<Location />} />
+      //   <Route path="/emergencies" element={<Emergencies />} />
+      //   <Route path="/signup" element={<Signup />} />
+      //   <Route path="/login" element={<Login />} />
+      //   <Route path="/homepage" element={<Homepage />} />
+      // </Routes>
+    // </BrowserRouter>
   );
 }
 
