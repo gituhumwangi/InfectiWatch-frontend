@@ -53,10 +53,17 @@ const Navbar = () => {
                         </Link>
                     </li>
                         <Link
-                            to="/log out"
+                            to="/"
                             className="text-white hover:text-gray-300 transition duration-300"
                         >
                             Log out
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                        to="/donations"
+                        >
+                        Donations
                         </Link>
                     </li>
                 </ul>

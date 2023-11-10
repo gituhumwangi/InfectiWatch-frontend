@@ -1,10 +1,12 @@
 import React from "react";
-import Donations from "./Donations";
+// import Donations from "./Donations"
+import NavBar from "./NavBar";
 
 function Location () {
     return (
         <div>
-            <Donations />
+            <NavBar/>
+            {/* <Donations /> */}
         </div>
     )
 }

@@ -122,44 +122,46 @@
 // export default Diseases;
 import React, { useEffect, useState } from "react";
 import "./Diseases.css"; // Import the CSS file
+import axios from "axios";
+import NavBar from "./NavBar";
+
 
 function Diseases() {
   const [data, setData] = useState(null);
-  const [filteredData, setFilteredData] = useState(null);
 
   useEffect(() => {
-    // Fetch data when the component mounts (initially)
     fetchData();
   }, []);
 
   const fetchData = () => {
-    fetch(`http://127.0.0.1:5000/diseases`)
+    axios
+      .get("http://127.0.0.1:5000/diseases", {
+        headers: {
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5OTU2MDgwNywianRpIjoiNzQ5NTkzNTAtOTMyZS00NzA1LWFmYTQtYWE5NzE5NmZhMjg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpZCI6MjEsInVzZXJuYW1lIjoibWFydG8ifSwibmJmIjoxNjk5NTYwODA3LCJleHAiOjE2OTk1NjQ0MDd9.PXd8Z2pG9oyDvcUkrbu32rc4TdJBtB2sbC8X9BKE4yE`,
+        },
+      })
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Disease not found");
-        }
-        return res.json();
+        setData(res.data);
       })
-      .then((data) => {
-        setData(data);
-        setFilteredData(data); // Initialize filteredData with all data
-      })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        console.error("Error fetching disease data: ", error);
+      });
   };
+  
 
-  const tableRows = (filteredData || []).map((disease, index) => (
+  const tableRows = (data || []).map((disease, index) => (
     <tr key={index}>
       <td>{disease.disease_name}</td>
       <td>{disease.description || "No data available"}</td>
       <td>{disease.prevention || "No data available"}</td>
       <td>{disease.symptoms || "No data available"}</td>
       <td>{disease.treatment || "No data available"}</td>
-      {/* <td>{disease.noOfCases || "No data available"}</td> */}
     </tr>
   ));
 
   return (
     <div className="diseases-container">
+        <NavBar />
       <h1>Disease Information</h1>
       <div className="disease-info">
         <table>
@@ -170,7 +172,6 @@ function Diseases() {
               <th>Prevention</th>
               <th>Symptoms</th>
               <th>Treatment</th>
-              {/* <th>Number of Cases</th> */}
             </tr>
           </thead>
           <tbody>{tableRows}</tbody>
@@ -181,4 +182,3 @@ function Diseases() {
 }
 
 export default Diseases;
-

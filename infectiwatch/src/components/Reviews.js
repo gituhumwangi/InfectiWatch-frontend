@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./Review.css"; // Import your CSS file for custom styles
+import "./Review.css"; // Import your CSS file for custom style
+import NavBar from "./NavBar";
 
-function Review() {
+function Reviews() {
   const [review, setReview] = useState("");
   const [totalReviews, setTotalReviews] = useState([]);
   const [fetchingReviews, setFetchingReviews] = useState(false);
@@ -20,8 +21,8 @@ function Review() {
         return res.json();
       })
       .then((data) => {
-        if (data.reviews && Array.isArray(data.reviews)) {
-          setTotalReviews(data.reviews);
+        if (Array.isArray(data)) {
+          setTotalReviews(data);
         } else {
           console.error("Reviews data is not in the expected format:", data);
         }
@@ -33,6 +34,7 @@ function Review() {
         setFetchingReviews(false);
       });
   }
+  
 
   function submitReview() {
     fetch("http://127.0.0.1:5000/reviews", {
@@ -44,7 +46,7 @@ function Review() {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Failed to submit review");
+          throw new Error(`Failed to submit review. Server responded with ${res.status}`);
         }
         return res.json();
       })
@@ -53,12 +55,14 @@ function Review() {
         setReview("");
       })
       .catch((error) => {
-        console.error("Error submitting review:", error);
+        console.error("Error submitting review:", error.message);
       });
   }
+  
 
   return (
     <div className="review-container">
+      <NavBar/>
       <h1 className="review-header">Reviews</h1>
       <p className="review-instructions">
         We would like to hear your thoughts on how to prevent this disease from affecting more people.
@@ -77,6 +81,9 @@ function Review() {
       <button onClick={submitReview} className="review-submit">
         Submit
       </button>
+      
+      <br/>
+
       <button onClick={fetchReviews} className="get-reviews" disabled={fetchingReviews}>
         Get Reviews
       </button>
@@ -99,4 +106,4 @@ function Review() {
   );
 }
 
-export default Review;
+export default Reviews;
