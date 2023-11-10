@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,14 +10,7 @@ const Navbar = () => {
                     INFECTIWATCH
                 </Link>
                 <ul className="flex space-x-7">
-                    <li>
-                        <Link
-                            to="/"
-                            className="text-white hover:text-gray-300 transition duration-300"
-                        >
-                            Home
-                        </Link>
-                    </li>
+                  
                     <li>
                         <Link
                             to="/diseases"
@@ -33,15 +27,8 @@ const Navbar = () => {
                             Location
                         </Link>
                     </li>
-                    <li>
-                        <Link
-                            to="/emergencies"
-                            className="text-white hover:text-gray-300 transition duration-300"
-                        >
-                            Emergencies
-                        </Link>
-                    </li>
-                    <li>
+                    
+                    
 
                     <li>
                         <Link
@@ -51,13 +38,16 @@ const Navbar = () => {
                             Reviews
                         </Link>
                     </li>
+                    <li>
                         <Link
-                            to="/log out"
+                            to="/"
                             className="text-white hover:text-gray-300 transition duration-300"
                         >
                             Log out
                         </Link>
+                        <li/>
                     </li>
+                   
                 </ul>
             </div>
         </nav>

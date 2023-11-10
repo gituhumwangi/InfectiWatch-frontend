@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import NavBar from './NavBar';
+
 import axios from 'axios';
+
 
 const AreaManagement = () => {
     const [areas, setAreas] = useState([]);
@@ -55,12 +58,12 @@ const AreaManagement = () => {
     const handleUpdateArea = async () => {
         try {
             const response = await axios.patch(
-                `http://127.0.0.1:5000/location/${updatedArea.id}`,
+                `https://infecti-watch.onrender.com/location/${updatedArea.id}`,
                 updatedArea
             );
             console.log('Area updated successfully:', response.data);
             // Refresh the areas list after updating
-            const refreshedAreas = await axios.get('http://127.0.0.1:5000/location');
+            const refreshedAreas = await axios.get('https://infecti-watch.onrender.com/location');
             setAreas(refreshedAreas.data);
             // Clear the form
             setUpdatedArea({
@@ -94,11 +97,14 @@ const AreaManagement = () => {
     };
 
     return (
+
         <div className="diseases-container mx-4 my-20">
+            <NavBar />
             <h1 className="text-center text-2xl font-bold p-4 bg-blue-500 text-white shadow">
                 Area List
             </h1>
             <table className="w-full border-collapse border border-gray-400 mt-4">
+
                 <thead>
                     <tr className="bg-lightblue text-white">
                         <th className="p-2">ID</th>

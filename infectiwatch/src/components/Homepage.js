@@ -1,11 +1,10 @@
 import React from "react";
 
-function Emergencies () {
+function Homepage () {
     return (
         <div>
-
+            Hello World
         </div>
     )
 }
-
-export default Emergencies
+export default Homepage

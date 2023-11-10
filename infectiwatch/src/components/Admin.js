@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserManagement from './UserManagement';
 import DiseaseManagement from './DiseaseManagement';
 import AreaManagement from './AreaManagement';
+import NavBar from './NavBar';
 
 const Admin = () => {
     const [view, setView] = useState('user');
@@ -12,6 +13,7 @@ const Admin = () => {
 
     return (
         <form className="container mx-auto p-4">
+            <NavBar />
             <h2 className="text-2xl font-semibold mb-4">Admin Panel</h2>
             <div className="flex space-x-4 mb-4">
                 <button

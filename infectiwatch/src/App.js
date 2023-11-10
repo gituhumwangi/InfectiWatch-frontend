@@ -7,12 +7,17 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Admin from './components/Admin';
 import DiseaseManagement from './components/DiseaseManagement';
-import DiseaseMap from './components/DiseaseMap';
+import Reviews from './components/Reviews'
+import Logout from './components/Logout'
+import Location from './components/Location'
+import Emergencies from './components/Emergencies'
+import Diseases from './components/Diseases'
+// import Donations from './components/Donations';
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router> */}
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
@@ -21,12 +26,22 @@ function App() {
           <Route path="/navbar" element={<NavBar />} />
           <Route path="/footer" element={<Footer />} />
           <Route path="/diseasemanagement" element={<DiseaseManagement />} />
-          <Route path="/diseasemap" element={<DiseaseMap />} />
+          <Route path='/reviews' element={<Reviews />} />
+          <Route path='/diseases' element={<Diseases />} />
+          <Route path='/' element={<Welcome />} />
+          <Route path='/Emergencies' element={<Emergencies />} />
+          {/* <Route path='/donations' element={<Donations />} /> */}
+          <Route path='/location' element={<Location/>} />
+          
+
+
         </Routes>
-      </Router>
+      {/* </Router> */}
+
     </div>
   );
 }
+
 
 export default App;
 
@@ -62,3 +77,4 @@ export default App;
 // }
 
 // export default App;
+
