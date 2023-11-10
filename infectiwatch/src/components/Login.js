@@ -16,7 +16,7 @@ const Login = () => {
         setSuccess('');
 
         axios
-            .post('http://127.0.0.1:5000/login', {
+            .post('https://infecti-watch.onrender.com/login', {
                 username,
                 password_hash,
                 role,
