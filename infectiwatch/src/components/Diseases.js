@@ -135,7 +135,7 @@ function Diseases() {
 
   const fetchData = () => {
     axios
-      .get("http://127.0.0.1:5000/diseases", {
+      .get("https://infecti-watch.onrender.com/diseases", {
         headers: {
           Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5OTU2MDgwNywianRpIjoiNzQ5NTkzNTAtOTMyZS00NzA1LWFmYTQtYWE5NzE5NmZhMjg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJpZCI6MjEsInVzZXJuYW1lIjoibWFydG8ifSwibmJmIjoxNjk5NTYwODA3LCJleHAiOjE2OTk1NjQ0MDd9.PXd8Z2pG9oyDvcUkrbu32rc4TdJBtB2sbC8X9BKE4yE`,
         },

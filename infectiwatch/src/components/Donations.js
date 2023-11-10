@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Donations.css"; // Import your CSS file for custom styles
-import NavBar from "./NavBar";
+// import NavBar from "./NavBar";
 
 function Donations() {
   const [donation, setDonation] = useState(0);
@@ -9,7 +9,7 @@ function Donations() {
 
   useEffect(() => {
     // Fetch individual donations from the backend when the component mounts
-    fetch("http://127.0.0.1:5000/donations")
+    fetch("https://infecti-watch.onrender.com/donations")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch individual donations");
@@ -55,7 +55,7 @@ function Donations() {
 
   return (
     <div className="donations-container">
-      <NavBar />
+      {/* <NavBar /> */}
       <h2>Support Our Cause</h2>
       <p className="donation-statement">
         Your generous donation helps us make a difference in the world. Every contribution counts.

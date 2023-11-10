@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import NavBar from './NavBar';
 
 const DiseaseManagement = () => {
     const [diseases, setDiseases] = useState([]);
@@ -34,6 +35,7 @@ const DiseaseManagement = () => {
 
     return (
         <div className="container mx-auto p-4">
+            <NavBar />
             <h1 className="text-2xl font-bold mb-4">Disease Management</h1>
             <table className="table-auto w-full">
                 <thead>

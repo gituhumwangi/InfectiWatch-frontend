@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import NavBar from './NavBar';
 
 const AreaManagement = () => {
     const [areas, setAreas] = useState([]);
@@ -34,6 +35,7 @@ const AreaManagement = () => {
 
     return (
         <div className="container mx-auto p-4">
+            <NavBar/>
             <h1 className="text-2xl font-bold mb-4">Area Management</h1>
             <table className="table-auto w-full">
                 <thead>

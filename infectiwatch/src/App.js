@@ -9,9 +9,10 @@ import Admin from './components/Admin';
 import DiseaseManagement from './components/DiseaseManagement';
 import Reviews from './components/Reviews'
 import Logout from './components/Logout'
+import Location from './components/Location'
 import Emergencies from './components/Emergencies'
 import Diseases from './components/Diseases'
-import Donations from './components/Donations';
+// import Donations from './components/Donations';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
           <Route path='/diseases' element={<Diseases />} />
           <Route path='/' element={<Welcome />} />
           <Route path='/Emergencies' element={<Emergencies />} />
-          <Route path='/donations' element={<Donations />} />
+          {/* <Route path='/donations' element={<Donations />} /> */}
+          <Route path='/location' element={<Location/>} />
           
 
 

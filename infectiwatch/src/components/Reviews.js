@@ -13,7 +13,7 @@ function Reviews() {
 
   function fetchReviews() {
     setFetchingReviews(true);
-    fetch("http://127.0.0.1:5000/reviews")
+    fetch("https://infecti-watch.onrender.com/reviews")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch Reviews");
@@ -81,7 +81,7 @@ function Reviews() {
       <button onClick={submitReview} className="review-submit">
         Submit
       </button>
-      
+
       <br/>
 
       <button onClick={fetchReviews} className="get-reviews" disabled={fetchingReviews}>
