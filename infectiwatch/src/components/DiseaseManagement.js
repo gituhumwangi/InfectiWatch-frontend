@@ -17,7 +17,7 @@ const DiseaseManagement = () => {
 
     useEffect(() => {
         axios
-            .get('https://infecti-watch.onrender.com/diseases')
+            .get('http://127.0.0.1:5000/diseases')
             .then((response) => {
                 setDiseases(response.data);
             })
@@ -29,7 +29,7 @@ const DiseaseManagement = () => {
 
     const addDisease = () => {
         axios
-            .post('https://infecti-watch.onrender.com/diseases', {
+            .post('http://127.0.0.1:5000/diseases', {
                 name: newDisease.name,
                 symptoms: newDisease.symptoms,
                 prevention: newDisease.prevention,
@@ -58,7 +58,7 @@ const DiseaseManagement = () => {
 
     const updateDisease = () => {
         axios
-            .put(`https://infecti-watch.onrender.com/diseases/${editingDisease.id}`, {
+            .put(`http://127.0.0.1:5000/diseases/${editingDisease.id}`, {
                 name: editingDisease.name,
                 symptoms: editingDisease.symptoms,
                 prevention: editingDisease.prevention,
@@ -85,7 +85,7 @@ const DiseaseManagement = () => {
 
     const deleteDisease = (diseaseToDelete) => {
         axios
-            .delete(`https://infecti-watch.onrender.com/diseases/${diseaseToDelete.id}`)
+            .delete(`http://127.0.0.1:5000/diseases/${diseaseToDelete.id}`)
             .then((response) => {
                 if (response.status === 200) {
                     const updatedDiseases = diseases.filter((disease) => disease.id !== diseaseToDelete.id);
@@ -269,7 +269,7 @@ export default DiseaseManagement;
 
 //     useEffect(() => {
 //         axios
-//             .get('https://infecti-watch.onrender.com/diseases')
+//             .get('http://127.0.0.1:5000/diseases')
 //             .then((response) => {
 //                 setDiseases(response.data);
 //             })
@@ -286,7 +286,7 @@ export default DiseaseManagement;
 
 //     const addDisease = () => {
 //         axios
-//             .post('https://infecti-watch.onrender.com/diseases', {
+//             .post('http://127.0.0.1:5000/diseases', {
 //                 name: newDisease.name,
 //                 symptoms: newDisease.symptoms,
 //                 prevention: newDisease.prevention,
@@ -315,7 +315,7 @@ export default DiseaseManagement;
 
 //     const updateDisease = () => {
 //         axios
-//             .put(`https://infecti-watch.onrender.com/diseases/${editingDisease.id}`, {
+//             .put(`http://127.0.0.1:5000/diseases/${editingDisease.id}`, {
 //                 name: editingDisease.name,
 //                 symptoms: editingDisease.symptoms,
 //                 prevention: editingDisease.prevention,
@@ -342,7 +342,7 @@ export default DiseaseManagement;
 
 //     const deleteDisease = (diseaseToDelete) => {
 //         axios
-//             .delete(`https://infecti-watch.onrender.com/diseases/${diseaseToDelete.id}`)
+//             .delete(`http://127.0.0.1:5000/diseases/${diseaseToDelete.id}`)
 //             .then((response) => {
 //                 if (response.status === 200) {
 //                     const updatedDiseases = diseases.filter((disease) => disease.id !== diseaseToDelete.id);
@@ -524,7 +524,7 @@ export default DiseaseManagement;
 //     useEffect(() => {
 //         const fetchData = async () => {
 //             try {
-//                 const response = await fetch('https://infecti-watch.onrender.com/diseases', {
+//                 const response = await fetch('http://127.0.0.1:5000/diseases', {
 //                     method: 'GET',
 //                     headers: {
 //                         'Authorization': 'Bearer yourAccessToken',
@@ -549,7 +549,7 @@ export default DiseaseManagement;
 
 //     const addDisease = async () => {
 //         try {
-//             const response = await fetch('https://infecti-watch.onrender.com/diseases', {
+//             const response = await fetch('http://127.0.0.1:5000/diseases', {
 //                 method: 'POST',
 //                 headers: {
 //                     'Authorization': 'Bearer yourAccessToken',
@@ -579,7 +579,7 @@ export default DiseaseManagement;
 
 //     const updateDisease = async () => {
 //         try {
-//             const response = await fetch(`https://infecti-watch.onrender.com/diseases/${editingDisease.id}`, {
+//             const response = await fetch(`http://127.0.0.1:5000/diseases/${editingDisease.id}`, {
 //                 method: 'PATCH',
 //                 headers: {
 //                     'Authorization': 'Bearer yourAccessToken',
@@ -604,7 +604,7 @@ export default DiseaseManagement;
 
 //     const deleteDisease = async (diseaseToDelete) => {
 //         try {
-//             const response = await fetch(`https://infecti-watch.onrender.com/diseases/${diseaseToDelete.id}`, {
+//             const response = await fetch(`http://127.0.0.1:5000/diseases/${diseaseToDelete.id}`, {
 //                 method: 'DELETE',
 //                 headers: {
 //                     'Authorization': 'Bearer yourAccessToken',
