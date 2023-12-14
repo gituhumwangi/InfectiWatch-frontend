@@ -1,45 +1,42 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-// import customHistory from './useCustomHistory'; 
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password_hash, setPasswordHash] = useState('');
-    const [role, setRole] = useState('User');
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-    const navigate = useNavigate()
-    const handleLogin = () => {
-        setError('');
-        setSuccess('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState(''); // Update the state variable name
+  const [role, setRole] = useState('User');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
-        axios
-            .post('https://infecti-watch.onrender.com/login', {
-                username,
-                password_hash,
-                role,
-            })
-            .then((response) => {
-                const accessToken = response.data.access_token;
-                console.log('Login successful', accessToken);
-                setSuccess('Login successful');
-                if (response.status === 200) {
-                    setSuccess('Login successful');
-                    localStorage.setItem('accessToken', response.data.access_token);
-                    navigate("/admin")
-                    // customHistory.push('/admin');
+  const handleLogin = () => {
+    setError('');
+    setSuccess('');
 
-                } else {
-                    setError('Login failed. Please check your credentials.');
-                }
-            })
-            .catch((error) => {
-                console.error('Login error:', error);
-                setError('Login failed. Please check your credentials.');
-            });
-    };
+    axios
+      .post('http://127.0.0.1:5000/login', { username, password, role })
+      .then((response) => {
+        const accessToken = response.data.access_token;
+        console.log('Login successful. Token:', accessToken);
+        setSuccess('Login successful');
+        localStorage.setItem('accessToken', accessToken);
+        navigate('/admin');
+      })
+      .catch((error) => {
+        console.error('Login error:', error);
+        setError('Login failed. Please check your credentials.');
+      });
+  };
+
+  // Axios interceptor for handling authorization header
+  axios.interceptors.request.use((config) => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  });
 
     return (
         <div

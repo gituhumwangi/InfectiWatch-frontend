@@ -9,7 +9,7 @@ function Donations() {
 
   useEffect(() => {
     // Fetch individual donations from the backend when the component mounts
-    fetch("https://infecti-watch.onrender.com/donations")
+    fetch("http://127.0.0.1:5000/donations")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch individual donations");
