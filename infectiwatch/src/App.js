@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Layout from './layouts/Layout';
+import Welcome from './components/Welcome';
 import AuthRoutes from "./routes/AuthRoutes";
+import { useNavigate } from 'react-router';
 import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import {
@@ -9,13 +11,14 @@ import {
   storeAuthUserOnLocalStorage,
 } from "./utils/functions";
 import { MAIN_DOMAIN } from "./utils/constants";
-import jwt_decode from "jwt_decode";
+import jwt_decode from "jwt-decode";
 import { AuthContext } from './contexts/AuthContext';
 // import Donations from './components/Donations';
 
 function App() {
 
   const [authUser, setAuthUser] = useState(null);
+  const navigate = useNavigate();
 
 
   const loginFromLocalStorage = () => {
@@ -78,7 +81,18 @@ function App() {
 
 
   return (
-    <div></div>
+    <>
+    <Welcome
+     
+     authUser={authUser}
+    
+    />
+
+        <AuthContext.Provider value={authUser}>
+          {authUser ? <Layout /> : <AuthRoutes handleLogin={handleLogin} />}
+        </AuthContext.Provider>
+    
+    </>
   );
 }
 
