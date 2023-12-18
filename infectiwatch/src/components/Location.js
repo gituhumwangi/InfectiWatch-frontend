@@ -26,7 +26,7 @@ const Location = () => {
     useEffect(() => {
         const fetchAreas = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000//location');
+                const response = await axios.get('https://infecti-watch.onrender.com//location');
                 setAreas(response.data);
             } catch (error) {
                 console.error('Error fetching areas:', error);
